@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-static inline
+__attribute__((always_inline))
 void normalize(double *v)
 {
     double d = sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
@@ -29,7 +29,7 @@ void add_vector(const double *a, const double *b, double *out)
         out[i] = a[i] + b[i];
 }
 
-static inline
+__attribute__((always_inline))
 void subtract_vector(const double *a, const double *b, double *out)
 {
     for (int i = 0; i < 3; i++)
@@ -58,7 +58,7 @@ void cross_product(const double *v1, const double *v2, double *out)
     out[2] = v1[0] * v2[1] - v1[1] * v2[0];
 }
 
-static inline
+__attribute__((always_inline))
 double dot_product(const double *v1, const double *v2)
 {
     double dp = 0.0;
